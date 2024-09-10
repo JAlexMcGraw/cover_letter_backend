@@ -29,7 +29,7 @@ app.add_middleware(
     allow_origins=["http://localhost:5173"
                    "cover-letter-gen-app-git-main-alex-mcgraws-projects.vercel.app",
                    "cover-letter-gen-23rcxrhv3-alex-mcgraws-projects.vercel.app",
-                   "cover-letter-gen-app.vercel.app"],  # Adjust this to your frontend's URL
+                   "https://cover-letter-gen-app.vercel.app"],  # Adjust this to your frontend's URL
     # allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
