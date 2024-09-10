@@ -24,16 +24,19 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Setup CORS
+origins = [
+    "https://cover-letter-gen-app.vercel.app",
+    "http://localhost:5173",  # Include this if you need local development support
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173",
-                #    "cover-letter-gen-app-git-main-alex-mcgraws-projects.vercel.app",
-                #    "cover-letter-gen-23rcxrhv3-alex-mcgraws-projects.vercel.app",
-                   "https://cover-letter-gen-app.vercel.app"],  # Adjust this to your frontend's URL
-    # allow_origins=['*'],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=600,  # Cache preflight requests for 10 minutes
 )
 
 # Configure logging
