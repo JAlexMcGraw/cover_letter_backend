@@ -2,7 +2,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from langchain_community.document_loaders import SeleniumURLLoader
-from src.backend.utils import CoverLetterGenerator
+from utils import CoverLetterGenerator
 from bs4 import BeautifulSoup
 from pydantic import BaseModel
 from copy import deepcopy
