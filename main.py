@@ -62,6 +62,7 @@ async def process_pdf(pdf_source, is_local_file=False):
 
 @app.post("/upload-pdf/")
 async def upload_pdf(file: UploadFile = File(...)):
+    logger.log(level=1, msg="/upload-pdf/ endpoint reached")
     if file.content_type != "application/pdf":
         raise HTTPException(status_code=400, detail="File must be a PDF")
     
@@ -133,4 +134,5 @@ async def cover_letter_generate(data: CoverLetterData):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=os.getenv("PORT") | 5000)
+    port = int(os.getenv("PORT", 5000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
