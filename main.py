@@ -15,6 +15,7 @@ import PyPDF2
 import logging 
 import traceback
 import uvicorn
+import os
 import json
 
 app = FastAPI()
@@ -132,4 +133,4 @@ async def cover_letter_generate(data: CoverLetterData):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    uvicorn.run(app, host="0.0.0.0", port=os.getenv("PORT") | 5000)
